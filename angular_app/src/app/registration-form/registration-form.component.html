@@ -1,0 +1,138 @@
+
+<div class="container">
+    <h2>Registration Form</h2>
+    <div class="row justify-content-center col-md-5 text-left rounded shadow py-5">
+        <form [formGroup]="myRegistrationForm" (ngSubmit)="onSubmit()">
+     <div class="form-group">
+            <div>
+            <label for="">First Name</label>
+            <input type="text" name="firstName" id="firstName" class="form-control" formControlName="firstName">
+            <small class="text-danger" *ngIf="!myRegistrationForm.get('email')?.valid &&
+            myRegistrationForm.get('email')?.touched
+           ">
+
+           <small *ngIf="myRegistrationForm.get('firstName')?.errors?.['required']">
+            FirstName field is required.
+           </small>
+           <small *ngIf="myRegistrationForm.get('firstName')?.errors?.['minLength']">
+            This field must have at least 5 characters.
+           </small>
+           <small *ngIf="myRegistrationForm.get('firstName')?.errors?.['maxLength']">
+            This field must have at most 5 characters.
+           </small>
+        </small>
+          </div>
+            
+        <div>
+        <label for="">Last Name</label>
+         <input type="text" name="lastName" id="lastName" class="form-control" formControlName="lastName">
+        <small class="text-danger" *ngIf="!myRegistrationForm.get('lastName')?.valid && myRegistrationForm.get('lastName')?.touched">
+           <small *ngIf="myRegistrationForm.get('lastName')?.errors?.['maxLength']">
+            This field must have at most 10 characters.
+           </small>
+        </small>
+        </div>
+
+
+        <div>
+            <label for="">Age</label>
+            <input type="text" name="age" id="age" class="form-control" formControlName="age">
+            <small class="text-danger" *ngIf="!myRegistrationForm.get('age')?.valid && myRegistrationForm.get('age')?.touched">
+                <small *ngIf="myRegistrationForm.get('age')?.errors?.['required']">
+                    Age field is required.
+                   </small>
+                   <small *ngIf="myRegistrationForm.get('age')?.errors?.['min']">
+                    Minimum Age Should be 17
+                   </small>
+                   <small *ngIf="myRegistrationForm.get('age')?.errors?.['max']">
+                    Maximum Age Should be 20
+                   </small>
+             </small>
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="email" name="email" id="email" class="form-control" formControlName="email">
+            <small class="text-danger" *ngIf="!myRegistrationForm.get('email')?.valid &&
+            myRegistrationForm.get('email')?.touched
+           ">
+            <small *ngIf="myRegistrationForm.get('email')?.errors?.['required']">
+                Email field is required.
+               </small>
+               <small *ngIf="myRegistrationForm.get('email')?.errors?.['email']">
+                Mention Email ID is Valid
+               </small>
+            </small>
+        </div>
+
+
+        <div>
+            <label for="">Phone</label>
+            <input type="tel" name="phone" id="phone" class="form-control" formControlName="phone">
+            <small class="text-danger" *ngIf="!myRegistrationForm.get('phone')?.valid &&
+            myRegistrationForm.get('phone')?.touched
+           ">
+            <small *ngIf="myRegistrationForm.get('phone')?.errors?.['maxLength']">
+                This field must have at most 10 characters.
+               </small>
+               <!-- <small *ngIf="myRegistrationForm.get('phone')?.errors?.['pattern']">
+                Phone Number is Should be in numbers
+               </small> -->
+            </small>
+        </div>
+
+
+            <label for="">City</label>
+                <select id="inputState" class="form-control">
+                  <option selected>Select</option>
+                <option >Mumbai</option>
+                <option >Kolkata</option>
+                <option >Delhi</option>
+            </select> <br>
+
+
+            <label for="">Gender</label> <br>
+            <select id="gender" class="form-control" formControlName="gender" >
+                <option selected>Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Transgender</option>
+            </select> 
+            <small class="text-danger" *ngIf="!myRegistrationForm.get('gender')?.valid &&
+            myRegistrationForm.get('gender')?.touched
+           ">
+            <small *ngIf="myRegistrationForm.get('gender')?.errors?.['required']">
+                Gender field is required.
+               </small>
+            </small>
+            <br>
+
+        <div>
+            <label for="">Password</label> 
+            <input type="password" name="password" id="password" class="form-control" formControlName="password">
+            <small class="text-danger" *ngIf="!myRegistrationForm.get('password')?.valid &&
+            myRegistrationForm.get('password')?.touched
+           ">
+            <small *ngIf="myRegistrationForm.get('password')?.errors?.['required']">
+                password field is required.
+               </small>
+            </small>
+        </div>
+
+        <div>
+            <label for="">Confirm Password</label> 
+            <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" formControlName="confirmPassword"> <br>
+            <small class="text-danger" *ngIf="!myRegistrationForm.get('confirmPassword')?.valid &&
+            myRegistrationForm.get('confirmPassword')?.touched
+           ">
+            <small *ngIf="myRegistrationForm.get('confirmPassword')?.errors?.['required']">
+                password field is required.
+               </small>
+            </small>
+        </div>
+
+            <button (click)="onSubmit()" type="button" class="btn btn-primary" >Submit</button>
+            
+        </div>
+    </form>
+    </div>
+</div>

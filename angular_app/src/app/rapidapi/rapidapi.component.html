@@ -1,0 +1,42 @@
+
+<h2>News:</h2>
+<div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Sr. No.</th>
+        <th scope="col">title</th>
+        <th scope="col">Publisher</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let news of data.news; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{news.title}}</td>
+        <td>{{news.publisher}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Quotes:</h2>
+<div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">exchange</th>
+            <th scope="col">shortname</th>
+            <th scope="col">symbol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let quotes of data.quotes; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{quotes.exchange}}</td>
+            <td>{{quotes.shortname}}</td>
+            <td>{{quotes.symbol}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

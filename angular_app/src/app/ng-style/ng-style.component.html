@@ -1,0 +1,11 @@
+
+
+<p [ngStyle]="{'color': colorVal, 'background-color':'#ddd'}">ngstyle works!</p>
+
+
+<ul>
+    <li *ngFor="let item of items" 
+    [ngStyle]="{'background-color': item.status == 'active' ? 'green' : 'red'}">
+    {{item.name}}
+    </li>
+</ul>

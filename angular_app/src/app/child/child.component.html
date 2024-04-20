@@ -1,0 +1,27 @@
+<p>child works!</p>
+
+<!-- 
+{{childMessage}} <br>
+{{childMessage2}} -->
+
+
+
+<button (click)="sendMessage()" class="btn btn-success ">Send Message to Parent</button>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">DOB</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>{{objPerson.name}}</td>
+        <td>{{objPerson.age}}</td>
+        <td>{{objPerson.dob}}</td>
+      </tr>
+    </tbody>

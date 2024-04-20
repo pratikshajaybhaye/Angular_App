@@ -1,0 +1,24 @@
+
+<div class="container">
+    <h1>Wikipedia Search</h1>
+<input type="text" [(ngModel)]="namesearch" placeholder="Enter search Name" class="form-control">
+
+<table  class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sr.No.</th>
+        <th scope="col">Title</th>
+        <th scope="col">WordCount</th>
+        <th scope="col">Snippet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor=" let data of searchData.query.search | filterassig: namesearch; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ data.title }}</td>
+        <td>{{ data.wordcount}}</td>
+        <td>{{ data.snippet }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

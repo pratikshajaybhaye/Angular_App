@@ -1,0 +1,28 @@
+
+
+<h2 style="color: orange;">Songs With Singer Name </h2> <br>
+<table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Sr No</th>
+  
+        <th scope="col">SingerName</th>
+  
+        <th scope="col">FavSong</th>
+  
+        <th scope="col">Released</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let singer of singers; let i = index">
+        <td>{{ i + 1 }}</td>
+  
+        <td>{{ singer.singerName }}</td>
+  
+        <td>{{ singer.favSong }}</td>
+  
+        <td>{{ singer.released }}</td>
+      </tr>
+    </tbody>
+  </table>

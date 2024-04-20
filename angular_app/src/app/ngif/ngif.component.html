@@ -1,0 +1,18 @@
+<p>ngif works!</p>
+
+
+<div *ngIf="isShow">content to show when condition is true</div>
+
+<div *ngIf="isLoggedIn else loggedOut">
+
+    Welcome , Jack
+
+</div>
+
+ 
+
+<ng-template #loggedOut>
+
+    Please log into continue.
+
+</ng-template>

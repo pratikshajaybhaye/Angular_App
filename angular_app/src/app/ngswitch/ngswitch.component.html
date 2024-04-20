@@ -1,0 +1,15 @@
+<p>ngswitch works!</p>
+
+<div [ngSwitch]="weather">
+
+ 
+
+    <p *ngSwitchCase="'sunny'">It's a beatiful sunny day</p>
+
+    <p *ngSwitchCase="'cloudy'">Looks like it might rain today</p>
+
+    <p *ngSwitchCase="'rainy'">Don't forget your umbrella!</p>
+
+    <p *ngSwitchDefault>Weather information not available</p>
+
+</div>

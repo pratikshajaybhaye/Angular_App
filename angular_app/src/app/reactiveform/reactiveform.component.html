@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row justify-content-center col-md-5 text-left rounded shadow py-5">
+        <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+            <input type="text" formControlName="email"  class="form-control" id="staticEmail" placeholder="Enter email">
+           <small class="text-danger" *ngIf="!myReactiveForm.get('email')?.valid &&
+           myReactiveForm.get('email')?.touched
+           ">
+
+           <small *ngIf="myReactiveForm.get('email')?.errors?.['required']">
+            Email field is required.
+           </small>
+           <small *ngIf="myReactiveForm.get('email')?.errors?.['minlength']">
+           This field must have at least 7 characters.
+           </small>
+           <small *ngIf="myReactiveForm.get('email')?.errors?.['maxlength']">
+            This field must have at most 50 characters.
+            </small>
+            <small *ngIf="myReactiveForm.get('email')?.errors?.['emailNotAllowed']">
+                Email is already taken . Try another.
+                </small>
+           </small>
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+            <input type="password" formControlName="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+        </div>
+        <div formGroupName="address">
+            <div class="row mt-2">
+                <div class="col">
+                    <input type="text" class="form-control" formControlName="state" placeholder="Enter State">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" formControlName="district" placeholder="Enter District">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    <input type="text" class="form-control" formControlName="taluka" placeholder="Enter taluka">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" formControlName="village" placeholder="Enter village">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" formArrayName="hobbies">
+            <div *ngFor="let hobby of hobbiesFormArray.controls; let i = index">
+                <label>Hobby  {{i + 1}}</label>
+                <input class="form-control" type="text" formControlName="{{i}}" placeholder="Enter hobby">
+                <button type="button" (click)="removeHobby(i)" class="btn btn-danger mt-2">Remove</button>
+            </div>
+            <button (click)="addHobby()" class="btn btn-success mt-2">Add Hobby</button>
+        </div>
+
+        <button type="submit" class="btn btn-success mt-2 ">Submit</button>
+        </form>
+        <div>
+            {{myReactiveForm.value | json}}
+        </div>
+</div>
+</div>

@@ -1,0 +1,22 @@
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-md-6 text-center rounded shadow py-5">
+        <h1 class="heading">Age Calculator</h1>
+        <div id="birthDate">
+            <label for="dateOfBirth">Enter your Date of Birth: </label>  &nbsp;
+        <input type="date" name="dateOfBirth" id="dateOfBirth" [(ngModel)]="dateOfBirth">
+        </div>
+        <div id="currentDate">
+            <label for="currentDate">Current Date: </label> &nbsp;
+        <input type="date" name="currentDate" id="currentDate" [(ngModel)]="currentDate">
+        </div>
+        <button class="btn btn-success" (click)="calculateAge()" id="clickButton">Calculate</button>
+        <button class="btn btn-secondary" (click)="clearAge()" id="clickButton">Clear</button>
+        
+        <div *ngIf="age !== null" class="result">Your Current Age is : {{age}}</div>
+    </div>
+        </div>
+</div>
+

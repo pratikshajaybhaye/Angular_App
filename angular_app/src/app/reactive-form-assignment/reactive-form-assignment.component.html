@@ -1,0 +1,104 @@
+<div class="container">
+<div id="profile">
+    <img src="	https://www.dynamicssmartz.com/img/user-5.png" alt="" srcset=""> <br>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing  <br>
+        Possimus, dolores! Non vitae libero, <br>
+        suscipit molestias consequatur fuga quibusdam  <br>
+          ab dolorum natus, voluptatum odit? Magni, <br>
+          exercitationem esse, assumenda vero rerum qui quae, <br>
+          officiis quisquam. Odio accusantium molestiae  <br>
+           architecto esse ipsa ea similique porro quaerat<br>
+           </p>
+</div>
+<form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+<div id="UserDeatils" class="form-group">
+    <div class="heading">User Details</div> <br>
+    <label for="fullName">Full Name*</label> <br> 
+    <input type="text" name="" id="" formControlName="fullName"  class="form-control" id="fullName">
+    <small class="text-danger" *ngIf="!myReactiveForm.get('fullName')?.valid && myReactiveForm.get('fullName')?.touched"> 
+    <small *ngIf="myReactiveForm.get('fullName')?.errors?.['required']">Not Empty</small> </small>  <br>
+    
+    <label for="">Your BirthDate*</label> <br>
+    <input type="date" name="" id="" formControlName="YourBirthDate" class="form-control">
+    <small class="text-danger" *ngIf="!myReactiveForm.get('YourBirthDate')?.valid && myReactiveForm.get('YourBirthDate')?.touched"> 
+    <small *ngIf="myReactiveForm.get('YourBirthDate')?.errors?.['required']">Not Empty </small> </small>  <br> 
+
+    <label for="">Gender</label> <br>
+    <select name="" id="" formControlName="Gender"  class="form-control">
+        <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option> 
+    </select>
+    <small class="text-danger" *ngIf="!myReactiveForm.get('Gender')?.valid && myReactiveForm.get('Gender')?.touched"> 
+    <small *ngIf="myReactiveForm.get('Gender')?.errors?.['required']">Not Empty  </small> </small>  <br> 
+    <div class="country">
+
+    <label for="">Country</label>
+    <select name="" id="" formControlName="country"  class="form-control">
+        <option *ngFor="let conutry of conutries" [value]="conutry">{{conutry}}</option>
+    </select>
+    <small class="text-danger" *ngIf="!myReactiveForm.get('country')?.valid && myReactiveForm.get('country')?.touched"> 
+    <small *ngIf="myReactiveForm.get('country')?.errors?.['required']">Not Empty</small> </small>  <br>  
+      </div>
+    <div  class="country">
+    <label for="">Phone</label>
+    <input type="tel" name="" id="" formControlName="phone" class="form-control"> 
+    <small class="text-danger" *ngIf="!myReactiveForm.get('phone')?.valid && myReactiveForm.get('phone')?.touched"> 
+    <small *ngIf="myReactiveForm.get('phone')?.errors?.['required']">Not Empty</small> </small>  <br>  
+    </div> <br>
+
+    <label for="">Bio*</label> <br>
+    <textarea name="" id="" cols="30" rows="1" formControlName="bio" class="form-control"></textarea>
+    <small class="text-danger" *ngIf="!myReactiveForm.get('bio')?.valid && myReactiveForm.get('bio')?.touched"> 
+    <small *ngIf="myReactiveForm.get('bio')?.errors?.['maxlength']">
+        Can't be more than 256 Characters long
+    </small> </small>  <br>
+    
+</div>
+<div id="AccountDetails" class="form-group">
+    <div class="heading">Account Details</div> <br>
+    <label for="">UserName*</label> <br>
+    <input type="text" name="username" id="username" formControlName="username" class="form-control">
+    <small class="text-danger" *ngIf="!myReactiveForm.get('username')?.valid && myReactiveForm.get('username')?.touched"> 
+        <small *ngIf="myReactiveForm.get('username')?.errors?.['required']">Not Empty</small> 
+        <small *ngIf="myReactiveForm.get('username')?.errors?.['minLength']">At Least 5 Charcters Long</small>
+        <small *ngIf="myReactiveForm.get('username')?.errors?.['maxLength']">Can't be more than 25 Charcters Long</small>
+        <!-- <small *ngIf="myReactiveForm.get('username')?.errors?.['pattern']">Must Contain Only Numbers & Letters</small> -->
+        </small>  <br>  
+    
+
+    <label for="">Email*</label> <br>
+    <input type="email" name="email" id="email" formControlName="email" class="form-control"> 
+    <small class="text-danger" *ngIf="!myReactiveForm.get('email')?.valid && myReactiveForm.get('email')?.touched"> 
+        <small *ngIf="myReactiveForm.get('email')?.errors?.['required']">Not Empty</small>
+        <!-- <small *ngIf="myReactiveForm.get('email')?.errors?.['pattern']">Valid Email</small>  -->
+    </small>  <br>  
+     
+        
+    <label for="">Password</label> <br>
+    <input type="password" name="password" id="password" formControlName="password" class="form-control"> 
+    <small class="text-danger" *ngIf="!myReactiveForm.get('password')?.valid && myReactiveForm.get('password')?.touched"> 
+        <small *ngIf="myReactiveForm.get('password')?.errors?.['required']">Not Empty</small> 
+        <small *ngIf="myReactiveForm.get('password')?.errors?.['minLength']">At Least 5 Charcters Long</small>
+        <!-- <small *ngIf="myReactiveForm.get('password')?.errors?.['pattern']">Must contain atleast 1 Uppercase,1 LowerCase & 1 Number</small> -->
+    </small>  <br>  
+        
+
+    <label for="">Confirm Password</label> <br>
+    <input type="password" name="confirmpassword" id="confirmpassword" formControlName="confirmpassword" class="form-control"> 
+    <small class="text-danger" *ngIf="!myReactiveForm.get('confirmpassword')?.valid && myReactiveForm.get('confirmpassword')?.touched"> 
+        <small *ngIf="myReactiveForm.get('confirmpassword')?.errors?.['required']">Not Empty</small> 
+    </small>  <br>  
+       
+
+   <input type="checkbox" name="terms" id="terms" formControlName="terms"> &nbsp; <label for="">I accept terms and Conditions</label> 
+   <small class="text-danger" *ngIf="!myReactiveForm.get('terms')?.valid && myReactiveForm.get('terms')?.touched"> 
+    <small *ngIf="myReactiveForm.get('terms')?.errors?.['requiredTrue']">Accept the Terms & Conditions</small> </small>  <br>  
+   
+
+   <button type="submit" class="btn btn-primary " (click)="onSubmit()">Submit</button>
+</div>
+</form>
+
+<!-- <div>
+    {{myReactiveForm.value | json}}
+</div> -->
+</div>

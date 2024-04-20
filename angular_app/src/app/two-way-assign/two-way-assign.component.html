@@ -1,0 +1,10 @@
+
+<h2>Two Way Data Binding</h2>
+
+<label>UserName is : </label>
+<input type="text" placeholder="Enter UserName" [(ngModel)]="userName">
+
+<p>Enter Username is: {{userName}}</p>
+
+ <button type="button" [disabled]="userName===''" (click)="checkResetUsername()" >Reset</button>
+

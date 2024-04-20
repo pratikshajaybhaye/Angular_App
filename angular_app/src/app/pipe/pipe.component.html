@@ -1,0 +1,49 @@
+
+<div style="text-align: center;">
+<p>Today's Date : {{date | date:'full'}}</p>
+
+<p>Today's Date : {{date | date:'short'}}</p>
+
+<p>Today's Date : {{date | date:'medium'}}</p>
+
+<h1>UpperCase Pipe</h1>
+
+<p>Full Name : {{convertUpperCase(fullName)}}</p>
+
+<p>Full Name : {{fullName | uppercase}}</p>
+
+<h1>LowerCase Pipe</h1>
+
+<p>Full Name : {{fullName | lowercase}}</p>
+
+<h1>TitleCase Pipe</h1>
+
+<p>Full Name : {{fullName |titlecase}}</p>
+
+<h1>Currency Pipe</h1>
+
+<p>USD: {{price | currency:'USD'}}</p>
+<p>INR: {{price | currency:'INR'}}</p>
+<p>EUR: {{price | currency:'EUR'}}</p>
+<p>CNY: {{price | currency:'CNY'}}</p>
+
+<h1>Percent Pipe</h1>
+
+<p>Total Discount: {{discount|percent}}</p>
+
+<h1>Async Pipe with observer</h1>
+
+<h2>Numbers</h2>
+<ul>
+    <li *ngFor="let number of numbers$ | async">
+      {{number}}
+    </li>
+</ul>
+
+<h1>Async Pipe with Promise</h1>
+<div>
+  <p>
+    
+  </p>
+</div>
+</div>

@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-left rounded shadow py-5">
+      <form #myform="ngForm" (ngSubmit)="OnSubmit(myform)">
+        <div ngModelGroup="userDetails">
+            <div class="from-group">
+          <label for="username">UserName</label>
+
+          <input
+            class="form-control"
+            type="text"
+            placeholder="Enter user name"
+            name="username"
+            id="username"
+            #username="ngModel"
+            minlength="7"
+            ngModel
+            required
+          />
+
+          <small *ngIf="username.touched && username.errors">
+            <small *ngIf="username.errors['required']">
+              Username Should be required
+            </small>
+            <small *ngIf="username.errors['minlength']">
+              Username Length Should be Minimum 7 Characters
+            </small>
+          </small>
+            </div>
+
+            <div class="form-group">
+          <label for="email">Email</label>
+
+          <input
+            class="form-control"
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            ngModel
+            required
+            email
+            #email="ngModel"
+            minlength="7"
+          />
+
+          <small *ngIf="email.touched && email.errors">
+            <small *ngIf="email.errors['required']">
+              Email field is required
+            </small>
+
+            <small *ngIf="email.errors['email']"> Email is not valid </small>
+
+            <small *ngIf="email.errors['minlength']">
+              Email length should be 7
+            </small>
+          </small>
+            </div>
+      </div>
+
+        <div class="form-group">
+          <label for="course">Select Course</label>
+          <select name="course" id="course" [(ngModel)]="defaultCourse" class="form-control" ngModel >
+            <option *ngFor="let course of courses" [value]="course">{{course}}</option>
+          </select>
+        </div>
+        
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text mt-2" *ngFor="let gender of genders">
+            <input type="radio" id="{{gender.id}}" name="gender" value="{{gender.value}}" ngModel [ngModel]="defaultGender">
+            <label for="{{gender.id}}">{{gender.value}}</label>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-success mt-2"
+        >
+          Submit
+        </button>
+        <!-- <button type="reset"  id="reset" class="btn btn-warning m-2 mt-3" (click)="Onreset(myform)">Reset</button> -->
+        <button type="button" class="btn btn-warning float-right m-lg-5" (click)="onReset(myform)">Reset</button>
+        <div class="justify-content-center mt-2" *ngIf="isSubmitted">
+          <h1>Form Data</h1>
+          <p>UserName: <strong>{{emplyoee.username}}</strong></p>
+          <p>Email: <strong>{{emplyoee.email}}</strong></p>
+          <p>Course: <strong>{{emplyoee.course}}</strong></p>
+          <p>Gender: <strong>{{emplyoee.gender}}</strong></p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- [disabled]="!myform.valid" -->
